@@ -1,0 +1,8 @@
+[package]
+description = "This is a placeholder for a Cargo and pip integration"
+edition = "2021"
+license = "0BSD"
+name = "pip"
+version = "0.0.2"
+
+[dependencies]
