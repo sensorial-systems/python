@@ -1,51 +1,29 @@
-# Proper Python Embedding in Rust
+# [WIP] Proper Python Embedding in Rust
 
-This is a PoC for embedding Python runtime in Rust libraries.
+This is part of strategy to bring Python packages into Python. The ultimate goal is to make any Python library available in Rust through Cargo.toml
 
-### Goal
-
-The goal is to make it possible to implement crates that imports and redistributes pip modules like in [examples/ensta](examples/ensta) to be used like in [examples/example](examples/example) **seamlessly so the user wouldn't know that the `ensta` crate is actually implemented in Python**.
-
-### ensta
-
-examples/ensta/Cargo.toml
 ```toml
 [package]
-name = "ensta"
-version = "0.1.0"
-edition = "2021"
+name = "diffusers"
+version = "0.26"
 
 [dependencies]
-pyo3 = { version = "0.20", features = ["auto-initialize"] }
-python310 = { path = "../../python310" }
+python = "3.10" # This is the embedding
 
 [build-dependencies]
-python310 = { path = "../../python310" }
+pip = "24" # To download and setup the pip packages in [package.metadata.pip]
 
 [package.metadata.pip]
-ensta = "*"
+diffusers = "0.26"
 ```
 
-examples/example/Cargo.toml
+so anyone could use the generated library with a simple
 ```toml
-[package]
-name = "example"
-version = "0.1.0"
-edition = "2021"
-
 [dependencies]
-ensta = { path = "../ensta" }
+diffusers = "0.26"
 ```
 
-examples/example/src/main.rs
-```rust
-use ensta::Client;
-
-fn main() {
-    let client = Client::new();
-    println!("{}", client.biography_of("notdanilo"));
-}
-```
+without worrying about its runtime. In fact, the runtime would be entirely replaced with a Rust implementation and the user wouldn't know.
 
 ### Try the example
 
