@@ -1,0 +1,12 @@
+[package]
+name = "python310"
+description = "This is a placeholder for a Cargo and pip integration"
+edition = "2021"
+license = "0BSD"
+version = "0.0.2"
+
+[dependencies]
+widestring = "1"
+directories = "5"
+include_dir = "0.7"
+cargo_toml = "0.19"

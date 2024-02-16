@@ -1,8 +1,9 @@
-[package]
-description = "This is a placeholder for a Cargo and pip integration"
-edition = "2021"
-license = "0BSD"
-name = "pip"
-version = "0.0.2"
-
-[dependencies]
+[workspace]
+resolver = "2"
+members = [
+    "python310",
+    "cargo-python",
+    "examples/ensta",
+    "examples/example"
+]
+exclude = ["pyo3"]

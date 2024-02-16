@@ -1,0 +1,14 @@
+[package]
+name = "ensta"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pyo3 = { version = "0.20", features = ["auto-initialize"]}
+python310 = { path = "../../python310" }
+
+[build-dependencies]
+python310 = { path = "../../python310" }
+
+[package.metadata.pip]
+ensta = "*"
