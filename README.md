@@ -17,7 +17,7 @@ pip = "24" # To download and setup the pip packages in [package.metadata.pip]
 diffusers = "0.26"
 ```
 
-so anyone could use the generated library with a simple
+so anyone could use the wrapper Rust crate with a simple
 ```toml
 [dependencies]
 diffusers = "0.26"
