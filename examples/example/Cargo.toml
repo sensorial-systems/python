@@ -4,4 +4,4 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-ensta ={ path = "../ensta" }
+ensta = { path = "../ensta" }

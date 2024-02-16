@@ -13,10 +13,10 @@ impl Client {
         Self { client }
     }
 
-    pub fn profile_picture_of(&self, user_name: &str) -> String {
+    pub fn biography_of(&self, user_name: &str) -> String {
         pyo3::Python::with_gil(|py| {
             let user_info = self.client.call_method1(py, "profile", (user_name,)).unwrap();
-            user_info.getattr(py, "profile_picture_url_hd").unwrap().extract(py).unwrap()
+            user_info.getattr(py, "biography").unwrap().extract(py).unwrap()
         })
     }
 }
@@ -28,6 +28,6 @@ mod tests {
     #[test]
     fn test() {
         let client = Client::new();
-        println!("{}", client.profile_picture_of("notdanilo"));
+        assert_eq!(client.biography_of("notdanilo"), "futuriste teqnophobique");
     }
 }
