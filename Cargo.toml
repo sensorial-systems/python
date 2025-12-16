@@ -1,9 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-    "python310",
-    "cargo-python",
-    "examples/ensta",
-    "examples/example"
+    "crates/*",
+    "examples/*",
 ]
 exclude = ["pyo3"]
